@@ -1,113 +1,414 @@
-import Image from 'next/image'
+'use client';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+import { useEffect, useState } from 'react';
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+import {
+  ChartBar,
+  DeviceMobile,
+  GithubLogo,
+  InstagramLogo,
+  LinkedinLogo,
+  List,
+  X,
+} from '@phosphor-icons/react';
+import controlFinanceImg2 from '@/assets/control_finance_2.svg';
+import controlFinanceImg3 from '@/assets/control_finance_3.svg';
+import controlFinanceImg4 from '@/assets/control_finance_4.svg';
+import controlFinanceImg from '@/assets/control_finance.svg';
+import logoImg from '@/assets/favicon.svg';
+import illustrationGif from '@/assets/finance.svg';
+import mockUpCellImg from '@/assets/mockup_cell.png';
+import mockUpImg from '@/assets/mockup.png';
+import Image from 'next/image';
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+interface Link {
+  name: string;
+  link: string;
 }
+
+const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const Links: Link[] = [
+    { name: 'Sobre nós', link: '#dashboard' },
+    { name: 'Recursos', link: '#features' },
+    { name: 'Contatos', link: '#footer' },
+  ];
+
+  useEffect(() => {
+    const smoothScroll = (targetId: string) => {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const handleClick = (link: string) => {
+      smoothScroll(link);
+      toggleMenu();
+    };
+
+    const addClickListener = (link: Link) => {
+      const element = document.querySelector(`a[href="${link.link}"]`);
+      if (element) {
+        element.addEventListener('click', (e) => {
+          e.preventDefault();
+          handleClick(link.link);
+        });
+      }
+    };
+
+    const removeClickListeners = () => {
+      Links.forEach((link) => {
+        const element = document.querySelector(`a[href="${link.link}"]`);
+        if (element) {
+          element.removeEventListener('click', (e) => {
+            e.preventDefault();
+            handleClick(link.link);
+          });
+        }
+      });
+    };
+
+    Links.forEach(addClickListener);
+
+    return () => {
+      removeClickListeners();
+    };
+  }, []);
+
+  return (
+    <div className="h-[85vh] bg-primary">
+      <header className="fixed left-0 top-0 w-full">
+        <div className="items-center justify-between bg-primary px-7 py-4 md:flex md:px-10">
+          <div
+            className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold
+      text-gray-800"
+          >
+            <Image src={logoImg} alt="Icone" className="h-8" />
+          </div>
+
+          <div
+            onClick={() => toggleMenu()}
+            className="absolute right-8 top-6 cursor-pointer text-3xl text-white md:hidden"
+          >
+            {isOpen ? <X size={24} /> : <List size={24} />}
+          </div>
+
+          <ul
+            className={`absolute left-0 z-[-1] w-full bg-primary pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
+              isOpen ? 'top-16 ' : 'top-[-490px]'
+            }`}
+          >
+            {Links.map((link) => (
+              <li key={link.name} className="my-7 text-xl md:my-0 md:ml-8">
+                <a href={link.link} className="text-white duration-500">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+
+            <div className="md-0 flex  gap-2  md:ml-6 md:gap-6">
+              <a href="https://app.uollet.com.br" className="text-white">
+                <button className="h-12 rounded border-0 bg-secondary pb-0 pl-8 pr-8 pt-0 text-base text-white filter hover:bg-secondaryDark hover:transition-all">
+                  Entrar
+                </button>
+              </a>
+              <a href="https://app.uollet.com.br" className="text-white">
+                <button className="h-12 rounded border-0 bg-secondary pb-0 pl-8 pr-8 pt-0 text-base text-white filter hover:bg-secondaryDark hover:transition-all">
+                  Cadastrar
+                </button>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </header>
+
+      <main className="m-0-auto-8 mb-10 flex w-full max-w-7xl flex-wrap items-center justify-between pb-0 pl-4 pr-4 pt-0 sm:mb-48 sm:pt-28">
+        <div className="mt-20 w-full md:w-2/4">
+          <h1 className="text-4xl font-bold text-white md:text-6xl">
+            Simplifique o seu controle{' '}
+            <span className="text-secondary">financeiro</span>
+          </h1>
+
+          <p className="mb-8 ml-0 mr-0 mt-4 text-base text-white">
+            A maneira mais rápida, fácil e simples de controlar seus gastos
+            financeiros e ver métricas claras sobre seus dados.
+          </p>
+
+          <div className="flex flex-col items-center justify-around gap-4 md:flex-row">
+            <button className="mb-2 flex h-12 items-center justify-between gap-1 rounded border-0 bg-primaryDark p-4 text-base text-white hover:bg-primaryDark/60 hover:transition-all md:mb-0 md:p-8">
+              <DeviceMobile size={18} weight="fill" />
+              Dados exibidos em gráficos
+            </button>
+            <button className="flex h-12 items-center justify-between gap-1 rounded border-0 bg-primaryDark p-4 text-base text-white hover:bg-primaryDark/60 hover:transition-all md:p-8">
+              <ChartBar size={18} weight="fill" />
+              Utilize em qualquer lugar
+            </button>
+          </div>
+        </div>
+        <div className="flex w-full items-center justify-center md:w-2/4">
+          <Image
+            src={illustrationGif}
+            alt="Ilustração"
+            className="mt-4 w-full max-w-md md:mt-0"
+          />
+        </div>
+      </main>
+
+      <div id="dashboard">
+        <section className="m-2-auto mt-16 flex w-full max-w-7xl flex-col items-center justify-between gap-8 pb-0 pl-4 pr-4 pt-0 md:mt-48 md:flex-row">
+          <div className="w-full md:w-1/2">
+            <Image src={mockUpImg} alt="" className="w-full" />
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <span className="mb-2 block rounded bg-orange-200 pb-1 pl-4 pr-4 pt-1 font-semibold">
+              01.
+            </span>
+            <h1 className="text-3xl font-bold text-secondary md:text-4xl lg:text-5xl">
+              Dashboard
+            </h1>
+            <p className="mb-4 ml-0 mr-0 mt-2 text-base tracking-widest md:mb-8 md:text-lg lg:text-base">
+              Adicione, edite, exclua e veja todas as suas transações no
+              dashboard da sua conta.
+            </p>
+
+            <div className="flex flex-col items-center gap-4 md:flex-row">
+              <a href="https://app.uollet.com.br" className="text-white">
+                <button className="flex h-10 w-72 items-center justify-between gap-1 rounded border-0 bg-secondary p-2 text-base text-white transition-all hover:bg-secondaryDark md:h-12 md:p-4 md:text-lg">
+                  Acessar
+                </button>
+              </a>
+              {/* <button className="mt-2 flex h-10 w-72 items-center justify-between gap-1 rounded border border-secondary bg-transparent p-2 text-base text-secondary transition-all hover:bg-secondaryDark hover:text-white md:mt-0 md:h-12 md:p-4 md:text-lg">
+                Saiba mais
+              </button> */}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="mobile">
+        <section className="m-2-auto mt-16 flex w-full max-w-7xl flex-col items-center justify-between gap-8 pb-0 pl-4 pr-4 pt-0 md:mt-36 md:flex-row">
+          <div className="w-full md:w-1/2">
+            <span className="mb-2 block rounded bg-orange-200 pb-1 pl-4 pr-4 pt-1 font-semibold">
+              02.
+            </span>
+            <h1 className="text-3xl font-bold text-secondary md:text-4xl lg:text-5xl">
+              Mobile
+            </h1>
+            <p className="mb-4 ml-0 mr-0 mt-2 text-base tracking-widest md:mb-8 md:text-lg lg:text-base">
+              Controle seus gastos em qualquer lugar, com qualquer dispositivo.
+            </p>
+
+            <div className="flex flex-col items-center gap-4 md:flex-row">
+              <a href="https://app.uollet.com.br" className="text-white">
+                <button className="flex h-10 w-72 items-center justify-between gap-1 rounded border-0 bg-secondary p-2 text-base text-white transition-all hover:bg-secondaryDark md:h-12 md:p-4 md:text-lg">
+                  Entre agora mesmo
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <Image
+              src={mockUpCellImg}
+              alt="Tela do App em um celular"
+              className="w-full"
+            />
+          </div>
+        </section>
+      </div>
+
+      <div id="feautures">
+        <section className="flex h-fit items-center justify-center bg-primary pb-8 pl-4 pr-4 pt-16 sm:pt-16 md:pt-24 lg:pt-32">
+          <div className="m-0-auto flex w-full max-w-7xl flex-col flex-wrap items-center justify-around">
+            <div>
+              <h1 className="text-center text-3xl font-semibold text-white sm:text-4xl md:text-4xl lg:text-5xl">
+                Utilize recursos{' '}
+                <span className="text-secondary">gratuitos.</span>
+              </h1>
+              <p className="mb-4 ml-0 mr-0 mt-4 text-center text-base text-white sm:text-lg md:mb-8">
+                Entenda como funciona a nossa plataforma e veja os recursos
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-8">
+              <div className="w-full rounded bg-primaryDark sm:w-1/2 md:w-1/2 lg:w-4/12">
+                <Image
+                  src={controlFinanceImg}
+                  alt=""
+                  className="m-0-auto block w-[65%]"
+                />
+                <h3 className="mb-4 text-center text-lg font-bold text-secondary sm:text-xl">
+                  Planejador de orçamentos
+                </h3>
+                <p className="mb-4 text-center text-sm text-white sm:text-base">
+                  Diga adeus às planilhas complexas. Adicione seus gastos e veja
+                  o quanto você pode gastar por dia, semana, mês ou ano.
+                </p>
+              </div>
+              <div className="w-full rounded bg-primaryDark sm:w-1/2 md:w-1/2 lg:w-4/12">
+                <Image
+                  src={controlFinanceImg2}
+                  alt=""
+                  className="m-0-auto block w-[65%]"
+                />
+                <h3 className="mb-4 text-center text-lg font-bold text-secondary sm:text-xl">
+                  Acesso em Qualquer Dispositivo
+                </h3>
+                <p className="mb-4 text-center text-sm text-white sm:text-base">
+                  Controle seus gastos de qualquer lugar, em qualquer
+                  dispositivo.
+                </p>
+              </div>
+              <div className="w-full rounded bg-primaryDark sm:w-1/2 md:w-1/2 lg:w-4/12">
+                <Image
+                  src={controlFinanceImg3}
+                  alt=""
+                  className="m-0-auto block w-[65%]"
+                />
+                <h3 className="mb-4 text-center text-lg font-bold text-secondary sm:text-xl">
+                  Insights Financeiros Claros
+                </h3>
+                <p className="mb-4 text-center text-sm text-white sm:text-base">
+                  Tenha uma visão clara de suas finanças com métricas fáceis de
+                  entender.
+                </p>
+              </div>
+              <div className="w-full rounded bg-primaryDark sm:w-1/2 md:w-1/2 lg:w-4/12">
+                <Image
+                  src={controlFinanceImg4}
+                  alt=""
+                  className="m-0-auto block w-[65%]"
+                />
+                <h3 className="mb-4 text-center text-lg font-bold text-secondary sm:text-xl">
+                  Gestão de Transações Simples
+                </h3>
+                <p className="mb-4 text-center text-sm text-white sm:text-base">
+                  Adicione, edite e acompanhe todas as suas transações com
+                  facilidade.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="depoiments">
+        <section className="m-0-auto flex h-[90vh] max-w-7xl flex-col flex-wrap items-center justify-center p-4">
+          <h1 className="mb-8 text-center text-6xl font-bold text-primary">
+            Junte-se a nós!
+            <br />
+            faça parte do
+            <br />
+            <span className="text-secondary">uollet</span>
+          </h1>
+
+          <a href="https://app.uollet.com.br" className="text-white">
+            <button
+              className="h-12 rounded border-0 bg-secondary pb-0 pl-8 pr-8 pt-0 text-base text-white filter"
+              type="button"
+            >
+              Começe agora
+            </button>
+          </a>
+        </section>
+      </div>
+
+      <section
+        id="footer"
+        className="flex flex-col items-center justify-between gap-6 bg-primaryDark p-4 text-white md:flex-row"
+      >
+        <p className="text-center md:text-left">
+          Conecte-se conosco nas redes sociais
+        </p>
+        <ul className="flex flex-row gap-10">
+          <li>
+            <a
+              href="https://www.instagram.com/ialexanderbrito/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <InstagramLogo size={24} weight="duotone" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ww.github.com/ialexanderbrito"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GithubLogo size={24} weight="duotone" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ialexanderbrito/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LinkedinLogo size={24} weight="duotone" />
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <footer className="grid grid-cols-1 gap-8 bg-primary p-4 text-white md:grid-cols-2 md:p-10 lg:grid-cols-4">
+        <div>
+          <h3 className="relative mb-4 text-2xl after:absolute after:bottom-0 after:left-0 after:h-1 after:w-1/2 after:rounded after:bg-secondary">
+            uollet
+          </h3>
+          <p className="text-justify text-base md:w-3/4 lg:w-full">
+            A maneira mais rápida, fácil e simples de controlar seus gastos
+            financeiros e ver métricas claras sobre seus dados
+          </p>
+        </div>
+
+        <div>
+          <h3 className="relative mb-4 text-2xl after:absolute after:bottom-0 after:left-0 after:h-1 after:w-1/2 after:rounded after:bg-secondary">
+            Links úteis
+          </h3>
+          <ul className="text-base">
+            <li className="mb-2">
+              <a href="#dashboard">Dashboard</a>
+            </li>
+            <li className="mb-2">
+              <a href="#mobile">Mobile</a>
+            </li>
+            <li className="mb-2">
+              <a href="#feautures">Recursos</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="relative mb-4 text-2xl after:absolute after:bottom-0 after:left-0 after:h-1 after:w-1/2 after:rounded after:bg-secondary">
+            Contato
+          </h3>
+          <ul className="text-base">
+            <li className="mb-2">
+              <a
+                href="mailto:
+                eu@ialexanderbrito.dev
+              "
+              >
+                eu@ialexanderbrito.dev
+              </a>
+            </li>
+
+            <li className="mb-2">
+              <a href="https://www.ialexanderbrito.dev">ialexanderbrito.dev</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default Home;
