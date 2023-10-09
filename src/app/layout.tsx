@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Controle suas finanças de forma simples e eficaz com o uollet, o aplicativo de finanças desenvolvido por Alexander.',
   keywords: ['finance', 'finanças', 'dinheiro', 'app', 'ialexanderbrito', 'controle financeiro'],
   applicationName: 'Uollet',
-  colorScheme: 'light dark',
+  colorScheme: 'light',
   twitter: {
     card: "summary_large_image", 
     site: "@ialexanderbrito", 
