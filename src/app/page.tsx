@@ -2,6 +2,17 @@
 
 import { useEffect, useState } from 'react';
 
+import controlFinanceImg2 from '@/assets/control_finance_2.svg';
+import controlFinanceImg3 from '@/assets/control_finance_3.svg';
+import controlFinanceImg4 from '@/assets/control_finance_4.svg';
+import controlFinanceImg from '@/assets/control_finance.svg';
+import logoImg from '@/assets/favicon.svg';
+import illustrationGif from '@/assets/finance.svg';
+import googlePlayImg from '@/assets/google-play-badge.png';
+import microsoftImg from '@/assets/microsoft-badge.svg';
+import pwaImg from '@/assets/pwa-badge.png';
+import mockUpCellImg from '@/assets/mockup_cell.png';
+import mockUpImg from '@/assets/mockup.png';
 import {
   ChartBar,
   DeviceMobile,
@@ -11,14 +22,6 @@ import {
   List,
   X,
 } from '@phosphor-icons/react';
-import controlFinanceImg2 from '@/assets/control_finance_2.svg';
-import controlFinanceImg3 from '@/assets/control_finance_3.svg';
-import controlFinanceImg4 from '@/assets/control_finance_4.svg';
-import controlFinanceImg from '@/assets/control_finance.svg';
-import logoImg from '@/assets/favicon.svg';
-import illustrationGif from '@/assets/finance.svg';
-import mockUpCellImg from '@/assets/mockup_cell.png';
-import mockUpImg from '@/assets/mockup.png';
 import Image from 'next/image';
 
 interface Link {
@@ -35,7 +38,7 @@ const Home = () => {
 
   const Links: Link[] = [
     { name: 'Sobre nós', link: '#dashboard' },
-    { name: 'Recursos', link: '#features' },
+    { name: 'Recursos', link: '#feautures' },
     { name: 'Contatos', link: '#footer' },
   ];
 
@@ -81,6 +84,7 @@ const Home = () => {
     };
   }, []);
 
+  
   return (
     <div className="h-[85vh] bg-primary">
       <header className="fixed left-0 top-0 w-full">
@@ -141,11 +145,11 @@ const Home = () => {
           </p>
 
           <div className="flex flex-col items-center justify-around gap-4 md:flex-row">
-            <button className="mb-2 flex h-12 items-center justify-between gap-1 rounded border-0 bg-primaryDark p-4 text-base text-white hover:bg-primaryDark/60 hover:transition-all md:mb-0 md:p-8">
+            <button className="mb-2 w-72 flex h-12 items-center justify-around gap-1 rounded border-0 bg-primaryDark p-4 text-base text-white hover:bg-primaryDark/60 hover:transition-all md:mb-0 md:p-8">
               <DeviceMobile size={18} weight="fill" />
               Dados exibidos em gráficos
             </button>
-            <button className="flex h-12 items-center justify-between gap-1 rounded border-0 bg-primaryDark p-4 text-base text-white hover:bg-primaryDark/60 hover:transition-all md:p-8">
+            <button className="flex h-12 w-72 items-center justify-around gap-1 rounded border-0 bg-primaryDark p-4 text-base text-white hover:bg-primaryDark/60 hover:transition-all md:p-8">
               <ChartBar size={18} weight="fill" />
               Utilize em qualquer lugar
             </button>
@@ -184,16 +188,13 @@ const Home = () => {
                   Acessar
                 </button>
               </a>
-              {/* <button className="mt-2 flex h-10 w-72 items-center justify-between gap-1 rounded border border-secondary bg-transparent p-2 text-base text-secondary transition-all hover:bg-secondaryDark hover:text-white md:mt-0 md:h-12 md:p-4 md:text-lg">
-                Saiba mais
-              </button> */}
             </div>
           </div>
         </section>
       </div>
 
       <div id="mobile">
-        <section className="m-2-auto mt-16 flex w-full max-w-7xl flex-col items-center justify-between gap-8 pb-0 pl-4 pr-4 pt-0 md:mt-36 md:flex-row">
+        <section className="m-2-auto mt-16 flex w-full max-w-7xl flex-col items-center justify-between gap-8 pb-0 pl-4 pr-4 pt-0 md:mt-16 md:flex-row">
           <div className="w-full md:w-1/2">
             <span className="mb-2 block rounded bg-orange-200 pb-1 pl-4 pr-4 pt-1 font-semibold">
               02.
@@ -309,14 +310,31 @@ const Home = () => {
             <span className="text-secondary">uollet</span>
           </h1>
 
-          <a href="https://app.uollet.com.br" className="text-white">
-            <button
-              className="h-12 rounded border-0 bg-secondary pb-0 pl-8 pr-8 pt-0 text-base text-white filter"
-              type="button"
-            >
-              Começe agora
-            </button>
-          </a>
+          <div className="flex flex-col items-center gap-4 md:flex-row">
+            <a className="text-white" href="https://app.uollet.com.br?pwa=true" rel="noreferrer" target="_blank">
+              <Image
+                src={pwaImg}
+                alt="Download PWA"
+                className="w-64"
+              />
+            </a>
+
+            <a className="text-white" href="https://app.uollet.com.br?pwa=true" rel="noreferrer" target="_blank">
+              <Image
+                src={microsoftImg}
+                alt="Download PWA"
+                className="w-64 h-[76px]"
+              />
+            </a>
+
+            <a href="https://app.uollet.com.br" className="text-white" target="_blank" rel="noreferrer">
+              <Image
+                src={googlePlayImg}
+                alt="Download Google Play"
+                className="w-64"
+              />
+            </a>
+          </div>
         </section>
       </div>
 
@@ -409,6 +427,6 @@ const Home = () => {
       </footer>
     </div>
   );
-}
+};
 
 export default Home;
